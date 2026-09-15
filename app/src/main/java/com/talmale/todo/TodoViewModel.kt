@@ -20,6 +20,13 @@ class TodoViewModel(application: Application) : AndroidViewModel(application) {
         update(_tasks.value + Task(id = repository.nextId(), title = trimmed))
     }
 
+    /** Renames a task in place. Blank input is ignored, same as [add]. */
+    fun rename(id: Long, title: String) {
+        val trimmed = title.trim()
+        if (trimmed.isEmpty()) return
+        update(_tasks.value.map { if (it.id == id) it.copy(title = trimmed) else it })
+    }
+
     fun toggle(id: Long) {
         update(_tasks.value.map { if (it.id == id) it.copy(done = !it.done) else it })
     }

@@ -1,0 +1,283 @@
+[
+  "PASS: empty state, no tasks",
+  "PASS: subtitle reads 'Nothing to do yet'",
+  {
+    "step": "01-empty",
+    "desc": "Fresh launch, no tasks",
+    "subtitle": "Nothing to do yet",
+    "tasks": [],
+    "checked": {}
+  },
+  "PASS: all three tasks present in order ['Buy milk', 'Call the dentist', 'Book flights']",
+  "PASS: subtitle counts them 3 of 3 remaining",
+  {
+    "step": "02-three-tasks",
+    "desc": "ADD still works",
+    "subtitle": "3 of 3 remaining",
+    "tasks": [
+      "Buy milk",
+      "Call the dentist",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk": false,
+      "Call the dentist": false,
+      "Book flights": false
+    }
+  },
+  "PASS: 'Buy milk' is ticked",
+  "PASS: others untouched",
+  "PASS: subtitle drops to 2 of 3 2 of 3 remaining",
+  {
+    "step": "03-completed",
+    "desc": "COMPLETE still works",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk",
+      "Call the dentist",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk": true,
+      "Call the dentist": false,
+      "Book flights": false
+    }
+  },
+  "PASS: edited row left the read-only list while editing ['Buy milk', 'Book flights']",
+  "PASS: Save button on screen",
+  "PASS: Cancel button on screen",
+  "PASS: other rows still readable",
+  {
+    "step": "04-edit-open",
+    "desc": "EDIT opens on tap, pre-filled",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk": true,
+      "Book flights": false
+    }
+  },
+  "PASS: field holds the new text",
+  {
+    "step": "05-edit-typed",
+    "desc": "EDIT accepts new text",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk": true,
+      "Book flights": false
+    }
+  },
+  "PASS: row now reads the new text ['Buy milk', 'Call the dentist at 4pm', 'Book flights']",
+  "PASS: old text is gone",
+  "PASS: position in the list preserved ['Buy milk', 'Call the dentist at 4pm', 'Book flights']",
+  "PASS: editor closed",
+  "PASS: done-count unchanged by a rename 2 of 3 remaining",
+  "PASS: renamed row keeps its unticked state",
+  {
+    "step": "06-edit-saved",
+    "desc": "EDIT SAVES",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk",
+      "Call the dentist at 4pm",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk": true,
+      "Call the dentist at 4pm": false,
+      "Book flights": false
+    }
+  },
+  "PASS: field holds the throwaway text",
+  {
+    "step": "07-edit-cancel-typed",
+    "desc": "EDIT: a change we are about to discard",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk",
+      "Call the dentist at 4pm"
+    ],
+    "checked": {
+      "Buy milk": true,
+      "Call the dentist at 4pm": false
+    }
+  },
+  "PASS: row still reads 'Book flights' ['Buy milk', 'Call the dentist at 4pm', 'Book flights']",
+  "PASS: throwaway text was discarded",
+  "PASS: editor closed",
+  "PASS: list otherwise unchanged ['Buy milk', 'Call the dentist at 4pm', 'Book flights']",
+  {
+    "step": "08-edit-cancelled",
+    "desc": "EDIT CANCELS cleanly",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk",
+      "Call the dentist at 4pm",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk": true,
+      "Call the dentist at 4pm": false,
+      "Book flights": false
+    }
+  },
+  "PASS: text changed ['Buy milk 2L', 'Call the dentist at 4pm', 'Book flights']",
+  "PASS: still ticked",
+  "PASS: count still 2 of 3 2 of 3 remaining",
+  {
+    "step": "09-edit-done-task",
+    "desc": "EDIT on a completed task keeps the tick",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk 2L",
+      "Call the dentist at 4pm",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk 2L": true,
+      "Call the dentist at 4pm": false,
+      "Book flights": false
+    }
+  },
+  "PASS: pressing Save on an empty field did not close the editor",
+  "PASS: no blank/renamed row appeared ['Buy milk 2L', 'Call the dentist at 4pm']",
+  "PASS: subtitle unchanged 2 of 3 remaining",
+  {
+    "step": "10-blank-guard",
+    "desc": "EDIT refuses to save a blank title",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk 2L",
+      "Call the dentist at 4pm"
+    ],
+    "checked": {
+      "Buy milk 2L": true,
+      "Call the dentist at 4pm": false
+    }
+  },
+  "PASS: 'Book flights' intact ['Buy milk 2L', 'Call the dentist at 4pm', 'Book flights']",
+  {
+    "step": "10b-blank-cancelled",
+    "desc": "and the original title comes back untouched",
+    "subtitle": "2 of 3 remaining",
+    "tasks": [
+      "Buy milk 2L",
+      "Call the dentist at 4pm",
+      "Book flights"
+    ],
+    "checked": {
+      "Buy milk 2L": true,
+      "Call the dentist at 4pm": false,
+      "Book flights": false
+    }
+  },
+  "PASS: 'Book flights' removed ['Buy milk 2L', 'Call the dentist at 4pm']",
+  "PASS: other rows untouched ['Buy milk 2L', 'Call the dentist at 4pm']",
+  "PASS: subtitle recounts 1 of 2 remaining",
+  {
+    "step": "11-deleted",
+    "desc": "DELETE still works",
+    "subtitle": "1 of 2 remaining",
+    "tasks": [
+      "Buy milk 2L",
+      "Call the dentist at 4pm"
+    ],
+    "checked": {
+      "Buy milk 2L": true,
+      "Call the dentist at 4pm": false
+    }
+  },
+  "PASS: edited titles survived ['Buy milk 2L', 'Call the dentist at 4pm']",
+  "PASS: completed state survived",
+  "PASS: deleted task stayed deleted",
+  "PASS: subtitle restored 1 of 2 remaining",
+  {
+    "step": "12-after-restart",
+    "desc": "PERSISTENCE across a full process kill",
+    "subtitle": "1 of 2 remaining",
+    "tasks": [
+      "Buy milk 2L",
+      "Call the dentist at 4pm"
+    ],
+    "checked": {
+      "Buy milk 2L": true,
+      "Call the dentist at 4pm": false
+    }
+  },
+  "PASS: unticked",
+  "PASS: subtitle back to 2 of 2 2 of 2 remaining",
+  {
+    "step": "13-unchecked",
+    "desc": "COMPLETE toggles back off",
+    "subtitle": "2 of 2 remaining",
+    "tasks": [
+      "Buy milk 2L",
+      "Call the dentist at 4pm"
+    ],
+    "checked": {
+      "Buy milk 2L": false,
+      "Call the dentist at 4pm": false
+    }
+  },
+  "PASS: no tasks left []",
+  "PASS: empty state returns Nothing to do yet",
+  {
+    "step": "14-empty-again",
+    "desc": "DELETE back to empty",
+    "subtitle": "Nothing to do yet",
+    "tasks": [],
+    "checked": {}
+  },
+  "PASS: renamed via Done ['Water the plants', 'Pay rent']",
+  "PASS: editor closed",
+  {
+    "step": "15-ime-done-saves",
+    "desc": "EDIT saves from the keyboard's Done key too",
+    "subtitle": "2 of 2 remaining",
+    "tasks": [
+      "Water the plants",
+      "Pay rent"
+    ],
+    "checked": {
+      "Water the plants": false,
+      "Pay rent": false
+    }
+  },
+  "PASS: only one editor open at a time",
+  "PASS: first row reverted to its saved title ['Water the plants']",
+  "PASS: unsaved text was not committed",
+  {
+    "step": "16-switch-rows",
+    "desc": "Tapping another task moves the editor and drops the unsaved change",
+    "subtitle": "2 of 2 remaining",
+    "tasks": [
+      "Water the plants"
+    ],
+    "checked": {
+      "Water the plants": false
+    }
+  },
+  "PASS: both tasks intact with saved titles ['Water the plants', 'Pay rent']",
+  {
+    "step": "17-final",
+    "desc": "Back to a clean list",
+    "subtitle": "2 of 2 remaining",
+    "tasks": [
+      "Water the plants",
+      "Pay rent"
+    ],
+    "checked": {
+      "Water the plants": false,
+      "Pay rent": false
+    }
+  },
+  "PASS: no crash-buffer output",
+  "PASS: no FATAL EXCEPTION / ANR in logcat []"
+]
